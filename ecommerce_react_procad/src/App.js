@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
-import ProductList from './components/ProductList/ProductList';
 import CreateProduct from './components/CreateProducts/CreateProduct';
+import FilterProduct from './components/FilterProduct/FilterProduct';
+import ProductList from './components/ProductList/ProductList';
 
 import './App.css';
 const products = [
@@ -54,19 +55,38 @@ const products = [
 	}
 ];
 function App() {
-	//33 understanding key props
-
 	let [newProductList, updateProductList] = useState(products);
 
+	let [filterTextvalue, updateFilterText] = useState('all');
+
+	//#34 assign the array of filtered Products
+	let filteredProductList = newProductList.filter(product => {
+		if (filterTextvalue === 'available') {
+			return product.isAvailable === true;
+		} else if (filterTextvalue === 'unavailable') {
+			return product.isAvailable === false;
+		} else {
+			return product;
+		}
+	});
+
 	function createProduct(product) {
+		//33 understanding key props
 		product.pID = newProductList.length + 1;
 		updateProductList([product], ...newProductList);
 	}
+
+	function onFilterValueSelected(filterValue) {
+		updateFilterText(filterValue);
+	}
 	return (
-		<>
-			<CreateProduct createProduct={createProduct} />
-			<ProductList newProductList={newProductList} />
-		</>
+		<div className='row'>
+			<div className='col-lg-8 mx-auto'>
+				<CreateProduct createProduct={createProduct} />
+				<FilterProduct filterValueSelected={onFilterValueSelected} />
+				<ProductList newProductList={filteredProductList} />
+			</div>
+		</div>
 	);
 }
 

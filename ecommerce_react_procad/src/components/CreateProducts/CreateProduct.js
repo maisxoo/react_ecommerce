@@ -8,16 +8,12 @@ function CreateProduct(props) {
 	}
 	//the productform has a reassigned function onCreateProduct that will become a props.children property of its child productForm and the function will recieve the product object passed from the child component
 	return (
-		<div className='row'>
-			<div
-				className='col-lg-8 mx-auto '
-				style={{
-					backgroundColor: 'white',
-					padding: '10px 20px',
-					marginBottom: 20
-				}}>
-				<ProductForm createProduct={onCreateProduct}></ProductForm>
-			</div>
+		<div
+			style={{
+				backgroundColor: 'white',
+				padding: '10px 20px'
+			}}>
+			<ProductForm createProduct={onCreateProduct}></ProductForm>
 		</div>
 	);
 }
