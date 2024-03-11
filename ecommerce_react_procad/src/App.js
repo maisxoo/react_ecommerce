@@ -6,8 +6,9 @@ import './App.css';
 
 function App() {
 	let [newProduct, updateProduct] = useState(null);
+
 	function createProduct(product) {
-		console.log(product);
+		updateProduct(product);
 	}
 	return (
 		<>
