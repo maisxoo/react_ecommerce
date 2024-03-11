@@ -39,6 +39,14 @@ const products = [
 		isAvailable: true,
 		image: 'images/bear-brand.png',
 		price: 16
+	},
+	{
+		pID: 6,
+		pName: 'Emborg',
+		desc: 'Lorem ipsum keme keme keme 48 years na tetetet bakit intonses tanders bokot neuro.',
+		isAvailable: true,
+		image: 'images/emborg.png',
+		price: 16
 	}
 ];
 function ProductList(props) {
@@ -47,50 +55,18 @@ function ProductList(props) {
 		<div className='row'>
 			<div className='col-lg-8 mx-auto'>
 				<ul className='list-group shadow'>
-					<Products
-						id={products[0].pId}
-						name={products[0].pName}
-						description={products[0].desc}
-						isAvailable={products[0].isAvailable}
-						image={products[0].image}
-						price={products[0].price}
-					/>
-
-					<Products
-						id={products[1].pId}
-						name={products[1].pName}
-						description={products[1].desc}
-						isAvailable={products[1].isAvailable}
-						image={products[1].image}
-						price={products[1].price}
-					/>
-
-					<Products
-						id={products[2].pId}
-						name={products[2].pName}
-						description={products[2].desc}
-						isAvailable={products[2].isAvailable}
-						image={products[2].image}
-						price={products[2].price}
-					/>
-
-					<Products
-						id={products[3].pId}
-						name={products[3].pName}
-						description={products[3].desc}
-						isAvailable={products[3].isAvailable}
-						image={products[3].image}
-						price={products[3].price}
-					/>
-
-					<Products
-						id={products[4].pId}
-						name={products[4].pName}
-						description={products[4].desc}
-						isAvailable={products[4].isAvailable}
-						image={products[4].image}
-						price={products[4].price}
-					/>
+					{products.map(product => {
+						return (
+							<Products>
+								id={product.pId}
+								name={product.pName}
+								description={product.desc}
+								isAvailable={product.isAvailable}
+								image={product.image}
+								price={product.price}
+							</Products>
+						);
+					})}
 				</ul>
 			</div>
 		</div>
