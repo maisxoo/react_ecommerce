@@ -10,7 +10,11 @@ import ProductDetails from './ProductDetails';
 //parent of ProductDetails passed props.rpice and isAvailable
 function Products(props) {
 	return (
-		<li className='list-group-item'>
+		<li
+			className='list-group-item'
+			style={{
+				backgroundColor: props.isAvailable ? 'white' : '#dedede'
+			}}>
 			<div className='media align-items-lg-center flex-column flex-lg-row p-3 d-flex'>
 				<div className='media-body order-2 order-lg-1'>
 					<h5 className='mt-0 font-weight-bold mb-2'>{props.name}</h5>
