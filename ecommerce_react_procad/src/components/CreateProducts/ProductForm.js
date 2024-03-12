@@ -78,6 +78,7 @@ function ProductForm(props) {
 		//instead of logging the product we are callingthe CreateProduct on the createProduct attribute and it becomes a property of this object
 		//createProduct is the attribute of the function onCreateProduct which will expect a product object pass as a parameter, tulay na siya from child to parent
 		props.createProduct(product);
+		props.onCancel();
 	}
 
 	return (
@@ -146,6 +147,9 @@ function ProductForm(props) {
 
 			<button type='submit' className='btn btn-primary'>
 				Add Product
+			</button>
+			<button type='button' onClick={props.onCancel}>
+				Cancel
 			</button>
 		</form>
 	);

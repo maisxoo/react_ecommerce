@@ -44,14 +44,6 @@ const products = [
 		isAvailable: true,
 		image: 'images/bear-brand.png',
 		price: 16
-	},
-	{
-		pID: 6,
-		pName: 'Emborg',
-		desc: 'Lorem ipsum keme keme keme 48 years na tetetet bakit intonses tanders bokot neuro.',
-		isAvailable: true,
-		image: 'images/emborg.png',
-		price: 16
 	}
 ];
 function App() {
